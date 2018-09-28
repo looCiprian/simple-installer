@@ -1,0 +1,2 @@
+# simple-installer
+Simple installer
