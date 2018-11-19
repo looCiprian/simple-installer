@@ -14,7 +14,7 @@ function menu() {
   echo "3. Install nmap"
   echo "4. Add user"
   echo "5. Install transmission"
-  echo "6. Install FTP server" #apt-get install proftpd /etc/proftpd/proftpd.conf
+  echo "6. Install FTP server" #apt-get -y install proftpd /etc/proftpd/proftpd.conf
   echo "7. Install VPN" #wget https://raw.githubusercontent.com/Angristan/OpenVPN-install/master/openvpn-install.sh
   echo "8. Download sqlmap"
   echo "9. Install curl"
@@ -99,7 +99,7 @@ function aircrackF() {
   then
    echo "Installing aircrack..."
    sleep 2
-   # sudo apt-get install aircrack-ng
+   sudo apt-get -y install aircrack-ng
    wasteTime
   else
     menu
@@ -123,7 +123,7 @@ function nmap() {
   then
    echo "Installing nmap..."
    sleep 2
-   # sudo apt-get install nmap
+   sudo apt-get -y install nmap
    wasteTime
   else
     menu
@@ -135,7 +135,7 @@ function addUser() {
   clear
   echo "User to add: "
   read userName
-  #adduser userdd -m $userName
+  adduser userdd -m $userName
   echo "Username $userName added"
   wasteTime
 }
@@ -149,7 +149,7 @@ function transmission() {
   then
    echo "Installing transmission..."
    sleep 2
-   # sudo apt-get install transmission-daemon
+   sudo apt-get -y install transmission-daemon
    wasteTime
   else
     menu
@@ -165,7 +165,7 @@ function ftpF() {
   then
    echo "Installing ftp..."
    sleep 2
-   # sudo apt-get install proftpd
+   sudo apt-get -y install proftpd
    echo "Config file at /etc/proftpd/proftpd.conf"
    wasteTime
   else
@@ -184,7 +184,7 @@ function sqlmap() {
     then
        echo "Downloading sqlmap from github..."
        sleep 2
-       # git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+       git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
        wasteTime
     else
       echo "Need to install git before"
@@ -206,7 +206,7 @@ function curlF() {
   then
    echo "Installing curl..."
    sleep 2
-   # sudo apt-get install curl
+   sudo apt-get -y install curl
    wasteTime
   else
     menu
@@ -222,7 +222,7 @@ function wget() {
   then
    echo "Installing wget..."
    sleep 2
-   # sudo apt-get install wget
+   sudo apt-get -y install wget
    wasteTime
   else
     menu
@@ -238,12 +238,12 @@ function wireshark() {
   then
     echo "Adding ppa:wireshark-dev/stable repository and update..."
     sleep 2
-   # sudo add-apt-repository ppa:wireshark-dev/stable
-   # sudo apt-get update
+    sudo add-apt-repository ppa:wireshark-dev/stable
+    sudo apt-get update
     echo "Installing wireshark..."
     sleep 2
-   # sudo apt-get install wireshark
-   wasteTime
+    sudo apt-get -y install wireshark
+    wasteTime
   else
     menu
   fi
@@ -258,8 +258,8 @@ function apache2() {
   then
    echo "Installing apache2..."
    sleep 2
-   # sudo apt-get install apache2
-   # sudo apt-get install php libapache2-mod-php
+   sudo apt-get -y install apache2
+   sudo apt-get -y install php libapache2-mod-php
    wasteTime
   else
     menu
@@ -275,7 +275,7 @@ function netdata() {
   then
    echo "Installing netdata..."
    sleep 2
-     # bash <(curl -Ss https://my-netdata.io/kickstart.sh)
+   bash <(curl -Ss https://my-netdata.io/kickstart.sh)
    wasteTime
   else
     menu
@@ -291,7 +291,7 @@ function hostapd() {
   then
    echo "Installing hostapd..."
    sleep 2
-     # sudo apt-get install hostapd
+   sudo apt-get -y install hostapd
    wasteTime
   else
     menu
